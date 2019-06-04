@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加图书</title>
+    <script src="js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+    <form>
+        图书名称:<input type="text" name="bookName">
+        <input type="button" id="btn" value="添加图书">
+    </form>
+</body>
+</html>
+<script>
+
+    $(function () {
+
+        $("#btn").click(function () {
+
+            $.ajax({
+                url:"/bookServlet",//访问地址
+                type:"POST",//提交方式 采用的是post
+                //data:"bookName=bigsmall&price=97",   //参数数据
+                data:{"name":"lookAtMe"},
+                //以上都没有问题 自动执行成功的回调函数
+                success:function (data) {
+                    alert("789"+data);
+                }
+            })
+        });
+    });
+</script>

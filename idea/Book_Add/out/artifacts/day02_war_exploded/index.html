@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+        <form id="myForm">
+
+           部门名称 <input type="text" name="departmentName"/>
+            部门分类<input type="text" name="departmentCategory"/>
+            <button id="btn">点我呀</button>
+        </form>
+
+
+
+
+</body>
+</html>
+      <script>
+
+          $(function () {
+
+              $("#btn").click(function () {
+                  var myDepartmentName = $("input").eq(0).val();
+                  var myDepartmentCategory = $("input").eq(0).val();
+
+                  $.ajax({
+
+                      url:"/departmentServlet",
+                      type:"post",
+                     // data:"departmentName=haha&departmentCategory=merry",
+                      //data:{"departmentName":"wangcai","epartmentCategory":"merry"},
+                     // data:{"departmentName":myDepartmentName,"departmentCategory":myDepartmentCategory},
+                      data:$("#myForm").serialize(),
+                      success:function (data) {
+                          alert("我是index.html中的success:"+data);
+                      },
+                      error:function (data) {
+                          alert("你失败了")
+                      }
+                  });
+              });
+          });
+      </script>
+
+
+

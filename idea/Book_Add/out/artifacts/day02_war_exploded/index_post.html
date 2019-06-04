@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+<form id="myForm">
+
+    部门名称 <input type="text" name="departmentName"/>
+    部门分类<input type="text" name="departmentCategory"/>
+    <button id="btn">点我呀</button>
+</form>
+
+
+
+
+</body>
+</html>
+<script>
+
+    $(function () {
+        var name = $("#departName").val();
+        // $.post("/departmentServlet",{"departmentName";name},function (data) {
+        //     alert(data);
+        // },"josn");
+        $.post("/departmentServlet",{"department":name},function (data){
+         alert(data);
+
+        },"josn");
+    });
+</script>
+
+
+
